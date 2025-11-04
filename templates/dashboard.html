@@ -114,13 +114,13 @@
             margin-bottom: 60px;
         }
 
-        /* Special positioning for Complete Protocol card 
+        /* Special positioning for Complete Protocol card */
         .options-grid .option-card:last-child {
             grid-column: 1 / -1;
             max-width: 400px;
             margin: 0 auto;
         }
-*/
+
         .option-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(0, 212, 255, 0.3);
@@ -361,11 +361,24 @@
 
     <!-- Main Container -->
     <div class="container">
-    
         <div class="options-grid">
-        
-        
-             <!-- Questionnaire -->
+            <!-- Behavioral Analysis -->
+            <div class="option-card">
+                <div class="brainwave">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+                <div class="option-icon">🧐📷</div>
+                <h3 class="option-title">Behavioral Analysis</h3>
+                <p class="option-description">
+                     Real-time facial behavior analysis using camera-based detection of expressions, eye blink rate, face tilt, and micro-movements.
+                </p>
+                <a href="{{ url_for('run_behavioral') if url_for else '#' }}" class="btn btn-primary">Initialize Scan</a>
+            </div>
+
+            <!-- Questionnaire -->
             <div class="option-card">
                 <div class="brainwave">
                     <div class="wave"></div>
@@ -380,8 +393,8 @@
                 </p>
                 <a href="{{ url_for('questionnaire_menu') if url_for else '#' }}" class="btn btn-primary">Begin Assessment</a>
             </div>
-            
-              <!-- EEG Analysis -->
+
+            <!-- EEG Analysis -->
             <div class="option-card">
                 <div class="brainwave">
                     <div class="wave"></div>
@@ -405,16 +418,13 @@
                     <div class="wave"></div>
                     <div class="wave"></div>
                 </div>
-                <div class="option-icon">🧠⚡📋</div>
+                <div class="option-icon">🧠⚡📷📋</div>
                 <h3 class="option-title">Brain-Behavior Assessment</h3>
                 <p class="option-description">
-                    Execute the full Neural Interface Protocol with parallel processing of cognitive assessment, and EEG analysis modules
+                    Execute the full Neural Interface Protocol with parallel processing of behavioral, cognitive assessment, and EEG analysis modules
                 </p>
                 <a href="{{ url_for('run_all_sequence') if url_for else '#' }}" class="btn btn-primary">Launch Protocol</a>
             </div>
-             
-            
-             
         </div>
 
         <!-- Reset Section -->
