@@ -1,15 +1,15 @@
-
 Flask
 gunicorn
 joblib
 matplotlib
 pyserial
 scipy
-tensorflow==2.11.1
+tensorflow==2.19.0
 xhtml2pdf
 html5lib
-numpy==1.23.5
+numpy
 pandas
+opencv-python
 mediapipe
 scikit-learn==1.4.2
 seaborn
@@ -18,3 +18,5 @@ requests
 gdown
 lightgbm
 xgboost
+pycairo==1.28.0
+graphviz==0.20.3
