@@ -1,7 +1,7 @@
 # eeg_utils.py
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"  # Disable GPU for TensorFlow
-
+'''
 import joblib
 import gdown
 
@@ -16,7 +16,7 @@ if not os.path.exists(MODEL_PATH):
     gdown.download(url, MODEL_PATH, quiet=False)
     if not os.path.exists(MODEL_PATH):
         raise FileNotFoundError("Model download failed. Check your internet or Google Drive file ID.")
-
+'''
 import numpy as np
 import pandas as pd
 import datetime, time, serial, joblib, threading
@@ -33,12 +33,12 @@ samples_needed = fs * buffer_seconds
 #model = joblib.load("/home/abhiram1289/Desktop/mentalhealth11/models/eeg_models/voting_model.pkl")
 #scaler = joblib.load("/home/abhiram1289/Desktop/mentalhealth11/models/eeg_models/scaler.pkl")
 #le = joblib.load("/home/abhiram1289/Desktop/mentalhealth11/models/eeg_models/label_encoder.pkl")
-
+'''
 # === Load Models ===
 model = joblib.load(MODEL_PATH)
 scaler = joblib.load("models/eeg_models/scaler.pkl")
 le = joblib.load("models/eeg_models/label_encoder.pkl")
-
+'''
 eeg_collector = {
     "running": False,
     "data": [],
@@ -221,7 +221,8 @@ def stop_and_process_eeg(personal):
 def run_eeg_merge():
     path = os.path.join("reports", "anonymous_eeg.csv")
     if not os.path.exists(path):
-        return {"EEG Rule-Based": "Parse Error", "EEG ML-Based": "Parse Error"}
+       # return {"EEG Rule-Based": "Parse Error", "EEG ML-Based": "Parse Error"}
+        return {"EEG Rule-Based": "Parse Error"}
 
     with open(path, 'r') as f:
         reader = csv.reader(f)
@@ -229,8 +230,8 @@ def run_eeg_merge():
         row = next(reader)
         rule = row[4]
         ml_parts = row[5:]
-        ml_summary = ', '.join(ml_parts)
+     #   ml_summary = ', '.join(ml_parts)
         return {
             "EEG Rule-Based": rule,
-            "EEG ML-Based": ml_summary
+        #    "EEG ML-Based": ml_summary
         }
